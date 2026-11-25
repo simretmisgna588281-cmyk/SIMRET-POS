@@ -1,0 +1,15 @@
+{
+  "name": "SIMRET POS",
+  "short_name": "SIMRET POS",
+  "start_url": "/SIMRET-POS/",
+  "display": "standalone",
+  "background_color": "#0d1b3e",
+  "theme_color": "#0d1b3e",
+  "icons": [
+    {
+      "src": "image_64ddb1c6 (1).png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
