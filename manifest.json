@@ -8,16 +8,10 @@
   "theme_color": "#0d1b3e",
   "icons": [
     {
-      "src": "https://github.io",
+      "src": "icon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "https://github.io",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ]
 }
