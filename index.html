@@ -4,7 +4,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SIMRET POS v1.4.0</title>
+<title>SIMRET POS</title>
 <script></script>
 <style>
 /* ============ SIMRET POS v1.4.0 - STYLE (edit colours here) ============ */
@@ -193,7 +193,7 @@ function persist(){try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){toas
 let me=null,tab="sell",cart=[],cdisc=0,cpay="Cash",crec="",cq="",ccat="";
 const isOwner=()=>me&&me.role=="owner";
 const S=()=>D.settings;
-/* ================= SIMRET SECURITY ADD-ON v1.8.0 =================
+/* ================= SIMRET SECURITY ADD-ON v1.9.0 =================
    Languages, fingerprint/face (WebAuthn), recovery code, change password.
    ALL translations are in LANG below. Ask a native speaker to check ti and lg. */
 const LANG={
@@ -226,14 +226,20 @@ nav_dash:"Dashboard",nav_sell:"Kutunda",nav_products:"Ebintu",nav_stock:"Ebiri m
 secT:"Obukuumi bwange",chT:"Kyusa ekigambo ekyama",cur:"Ekigambo ekyama ekiriwo",new:"Ekigambo ekyama ekipya",save:"Tereka",chOk:"Ekigambo ekyama kikyusiddwa",chBad:"Ekigambo ekyama ekiriwo si kituufu",weakO:"Ekigambo ekyama ky'nnannyini kirina okuba n'ennukuta 8 oba okusingawo, nga mulimu ennukuta, ennamba n'akabonero",weakS:"PIN erina okuba n'ennamba 4 okutuuka ku 8",fpViaFp:"Oyingidde n'engalo, kale osobola okuteekawo ekigambo ekyama ekipya kati.",
 fpT:"Engalo (fingerprint) / Amaaso / Windows Hello",fpD:"Ongerako kompyuta eno oba essimu yo osobole okuggulawo nga totaddeko kigambo kyama.",fpAdd:"Ongerako engalo / amaaso",fpCnt:"Ebyongeddwako ku kompyuta eno:",fpDel:"Aggyawo byonna",fpNo:"Fingerprint yeetaaga link ekuumibwa (https) ne browser ekikkiriza.",fpAdded:"Fingerprint eyongeddwako",fpFail:"Fingerprint eremeddwa oba ekomyewo",fpNone:"Tewali fingerprint eyongeddwako.",
 recT:"Koodi y'okuzzaawo",recD:"Gikozese bw'oweerabira ekigambo ekyama ne fingerprint. Ekola omulundi gumu gwokka.",recNew:"Kola koodi empya ey'okuzzaawo",recShow:"Koodi yo ey'okuzzaawo",recWarn:"Gyawandiike oba ogiprinte, ogitereke bulungi. Teeyongere kulabika. Omuntu yenna alina koodi eno asobola okukyusa ekigambo ekyama ky'nnannyini.",recHint:"Nsaba oggulewo Obukuumi okole koodi yo ey'okuzzaawo.",print:"Print",done:"Nkomye",
-fgT:"Zzaawo ekigambo ekyama ky'nnannyini",fgD:"Wandiika erinnya ly'omukozesa ow'nnannyini ne koodi y'okuzzaawo.",rcode:"Koodi y'okuzzaawo",reset:"Zzaawo ekigambo ekyama",wrongRec:"Erinnya ly'omukozesa oba koodi y'okuzzaawo si ntuufu",lockd:"Oyingizza bubi emirundi mingi. Linda eddakiika 5.",wrong:"Erinnya ly'omukozesa oba ekigambo ekyama si kituufu",resetOk:"Ekigambo ekyama kizziddwawo. Koodi empya ey'okuzzaawo eri wansi.",ownerOnly:"Nnannyini yekka asobola okukozesa kino."}
+fgT:"Zzaawo ekigambo ekyama ky'nnannyini",fgD:"Wandiika erinnya ly'omukozesa ow'nnannyini ne koodi y'okuzzaawo.",rcode:"Koodi y'okuzzaawo",reset:"Zzaawo ekigambo ekyama",wrongRec:"Erinnya ly'omukozesa oba koodi y'okuzzaawo si ntuufu",lockd:"Oyingizza bubi emirundi mingi. Linda eddakiika 5.",wrong:"Erinnya ly'omukozesa oba ekigambo ekyama si kituufu",resetOk:"Ekigambo ekyama kizziddwawo. Koodi empya ey'okuzzaawo eri wansi.",ownerOnly:"Nnannyini yekka asobola okukozesa kino."},
+ar:{n:"العربية",user:"اسم المستخدم",pass:"كلمة المرور أو الرقم السري",login:"تسجيل الدخول",logout:"تسجيل الخروج",signin:"سجّل الدخول للمتابعة",fp:"افتح ببصمة الإصبع / الوجه",forgot:"نسيت كلمة المرور؟",lang:"اللغة",sec:"الأمان",
+nav_dash:"لوحة التحكم",nav_sell:"البيع",nav_products:"المنتجات",nav_stock:"المخزون",nav_sales:"المبيعات",nav_expenses:"المصروفات",nav_credits:"قائمة الديون",nav_receive:"استلام بضاعة",nav_orders:"طلب بضاعة",nav_promos:"العروض",nav_prices:"تغييرات الأسعار",nav_reports:"التقارير",nav_value:"قيمة المتجر",nav_settings:"الإعدادات",
+secT:"أمان حسابي",chT:"تغيير كلمة المرور",cur:"كلمة المرور الحالية",new:"كلمة المرور الجديدة",save:"حفظ",chOk:"تم تغيير كلمة المرور",chBad:"كلمة المرور الحالية غير صحيحة",weakO:"يجب أن تتكون كلمة مرور المالك من 8 أحرف أو أكثر، وتحتوي على حرف ورقم ورمز",weakS:"يجب أن يتكون الرقم السري من 4 إلى 8 أرقام",fpViaFp:"لقد دخلت ببصمة الإصبع، لذلك يمكنك الآن تعيين كلمة مرور جديدة.",
+fpT:"بصمة الإصبع / الوجه / Windows Hello",fpD:"أضف هذا الكمبيوتر أو هاتفك لتفتح النظام دون كتابة كلمة المرور.",fpAdd:"إضافة بصمة الإصبع / الوجه",fpCnt:"المضاف على هذا الكمبيوتر:",fpDel:"إزالة الكل",fpNo:"تحتاج البصمة إلى رابط آمن (https) ومتصفح مدعوم.",fpAdded:"تمت إضافة البصمة",fpFail:"فشلت البصمة أو تم إلغاؤها",fpNone:"لم تتم إضافة أي بصمة بعد.",
+recT:"رمز الاسترداد",recD:"استخدمه إذا نسيت كلمة المرور والبصمة. يعمل مرة واحدة فقط.",recNew:"إنشاء رمز استرداد جديد",recShow:"رمز الاسترداد الخاص بك",recWarn:"اكتبه أو اطبعه واحفظه في مكان آمن. لن يظهر مرة أخرى. أي شخص لديه هذا الرمز يمكنه إعادة تعيين كلمة مرور المالك.",recHint:"يرجى فتح الأمان وإنشاء رمز الاسترداد الخاص بك.",print:"طباعة",done:"تم",
+fgT:"إعادة تعيين كلمة مرور المالك",fgD:"أدخل اسم مستخدم المالك ورمز الاسترداد.",rcode:"رمز الاسترداد",reset:"إعادة تعيين كلمة المرور",wrongRec:"اسم المستخدم أو رمز الاسترداد غير صحيح",lockd:"محاولات خاطئة كثيرة. انتظر 5 دقائق.",wrong:"اسم المستخدم أو كلمة المرور غير صحيحة",resetOk:"تمت إعادة تعيين كلمة المرور. رمز الاسترداد الجديد أدناه.",ownerOnly:"هذه الميزة للمالك فقط."}
 };
 let CURLANG=(()=>{try{const l=localStorage.getItem("mmpos_lang");return LANG[l]?l:"en"}catch(e){return"en"}})();
-document.documentElement.lang=CURLANG;
+document.documentElement.lang=CURLANG;document.documentElement.dir=CURLANG=="ar"?"rtl":"ltr";
 function tr(k){return(LANG[CURLANG]&&LANG[CURLANG][k])||LANG.en[k]||k}
 function tn(key,fallback){const k="nav_"+key;return(LANG[CURLANG]&&LANG[CURLANG][k])||LANG.en[k]||fallback}
 function langSel(){return`<select id="lang_sel" aria-label="${tr("lang")}" style="width:auto;padding:4px 8px;font-size:13px">${Object.keys(LANG).map(k=>`<option value="${k}"${k==CURLANG?" selected":""}>${LANG[k].n}</option>`).join("")}</select>`}
-document.addEventListener("change",e=>{if(e.target&&e.target.id=="lang_sel"){CURLANG=e.target.value;try{localStorage.setItem("mmpos_lang",CURLANG)}catch(x){}document.documentElement.lang=CURLANG;render()}});
+document.addEventListener("change",e=>{if(e.target&&e.target.id=="lang_sel"){CURLANG=e.target.value;try{localStorage.setItem("mmpos_lang",CURLANG)}catch(x){}document.documentElement.lang=CURLANG;document.documentElement.dir=CURLANG=="ar"?"rtl":"ltr";render()}});
 
 /* ---- fingerprint / face / Windows Hello (WebAuthn). Kept per computer, never synced. ---- */
 const PKK="mmpos_pk";
@@ -306,7 +312,7 @@ document.addEventListener("submit",e=>{
  }
 });
 /* ================= END SECURITY ADD-ON ================= */
-/* ================= LABEL PRINTING + RECEIPT BRANDING (v1.8.0) ================= */
+/* ================= LABEL PRINTING + RECEIPT BRANDING (v1.9.0) ================= */
 const POWERED=`<div class="c" style="font-size:.82em;margin-top:6px">Powered by <b>SIMRET POS</b></div><div class="c" style="font-size:.78em">WhatsApp +256706270197</div><div class="c" style="font-size:.78em">simretpos@gmail.com</div>`;
 const C128P="212222 222122 222221 121223 121322 131222 122213 122312 132212 221213 221312 231212 112232 122132 122231 113222 123122 123221 223211 221132 221231 213212 223112 312131 311222 321122 321221 312212 322112 322211 212123 212321 232121 111323 131123 131321 112313 132113 132311 211313 231113 231311 112133 112331 132131 113123 113321 133121 313121 211331 231131 213113 213311 213131 311123 311321 331121 312113 312311 332111 314111 221411 431111 111224 111422 121124 121421 141122 141221 112214 112412 122114 122411 142112 142211 241211 221114 413111 241112 134111 111242 121142 121241 114212 124112 124211 411212 421112 421211 212141 214121 412121 111143 111341 131141 114113 114311 411113 411311 113141 114131 311141 411131 211412 211214 211232 2331112".split(" ");
 function c128(t){
@@ -399,6 +405,7 @@ document.addEventListener("input",e=>{
  lbPrev()
 });
 /* ================= END LABEL ADD-ON ================= */
+{const s=document.createElement("style");s.textContent="html[dir=rtl] .rc,html[dir=rtl] .lb,html[dir=rtl] #lbm .lb{direction:ltr}";document.head.appendChild(s)}
 
 
 
@@ -575,7 +582,7 @@ function render(){applyTheme();document.body.classList.toggle("in",!!me);const r
  <div class="f"><label>Shop logo (optional - can be changed later)</label><div class="logoBox"><img id="su_img" style="display:none" alt=""><button type="button" data-act="slogo">Choose logo image</button></div></div>
  <button class="p" style="width:100%;padding:12px">Start</button></form><p class="sm mu" style="margin-top:12px;text-align:center">Another counter of an existing shop? <a href="#" data-act="conn">Connect this device</a></p></div>`;return}
  if(!me){root.innerHTML=`<div class="card login welcome">${S().logo?`<img class="wl" src="${S().logo}" alt="">`:`<div style="font-size:56px">&#128722;</div>`}<div class="mu" style="font-size:16px">${esc(S().welcome||"Welcome to")}</div><h2 style="font-size:28px;margin:2px 0 4px">${esc(S().shop||"SIMRET POS")}</h2><p class="mu">${esc(S().tagline||tr("signin"))}</p>
- <form data-form="login"><input id="lu" autocomplete="username" placeholder="${tr("user")}" autofocus><br><br><input id="pin" type="password" autocomplete="current-password" placeholder="${tr("pass")}"><br><br><button class="p" style="width:100%;padding:12px">${tr("login")}</button></form><div style="margin-top:12px">${pkOK()&&pkList().length?`<button type="button" data-sa="fplogin" style="width:100%;padding:12px;margin-bottom:10px">&#128274; ${tr("fp")}</button>`:""}<a href="#" data-sa="forgot" class="sm">${tr("forgot")}</a><div style="margin-top:10px">${langSel()}</div></div><p class="sm mu" style="margin-top:14px">${syBadge()} <a href="#" data-act="conn">&#9881; Connection</a></p><div class="sm" style="letter-spacing:3px;font-weight:700;opacity:.55;margin-top:6px">SIMRET POS · v1.8.0</div></div>`;setTimeout(()=>{const p=$("#lu");p&&p.focus()},50);return}
+ <form data-form="login"><input id="lu" autocomplete="username" placeholder="${tr("user")}" autofocus><br><br><input id="pin" type="password" autocomplete="current-password" placeholder="${tr("pass")}"><br><br><button class="p" style="width:100%;padding:12px">${tr("login")}</button></form><div style="margin-top:12px">${pkOK()&&pkList().length?`<button type="button" data-sa="fplogin" style="width:100%;padding:12px;margin-bottom:10px">&#128274; ${tr("fp")}</button>`:""}<a href="#" data-sa="forgot" class="sm">${tr("forgot")}</a><div style="margin-top:10px">${langSel()}</div></div><p class="sm mu" style="margin-top:14px">${syBadge()} <a href="#" data-act="conn">&#9881; Connection</a></p><div class="sm" style="letter-spacing:3px;font-weight:700;opacity:.55;margin-top:6px">SIMRET POS · v1.9.0</div></div>`;setTimeout(()=>{const p=$("#lu");p&&p.focus()},50);return}
  let tabs=[...(isOwner()?[["dash","Dashboard"]]:[]),["sell","Sell"],["products","Products"],["stock","Stock"],["sales","Sales"],["expenses","Expenses"]];if(me.role!="receiver")tabs.push(["credits","Credit List"]);if(isOwner())tabs.push(["receive","Receive stock"],["orders","Order stock"],["promos","Promotions"],["prices","Price changes"],["reports","Reports"],["value","Shop value"],["settings","Settings"]);if(me.role=="receiver")tabs=[["receive","Receive stock"]];
  root.innerHTML=`<div class="shell"><aside class="side"><div class="brand">${S().logo?`<img src="${S().logo}" alt="">`:""}<div><h1>${esc(S().shop||"SIMRET POS")}</h1><small>${esc(S().tagline||"")}</small></div></div>
  <nav>${tabs.map(t=>`<button data-act="tab" data-t="${t[0]}" class="${tab==t[0]?"on":""}"><span class="ic">${IC[t[0]]||""}</span><span>${tn(t[0],t[1])}</span></button>`).join("")}</nav></aside><div class="content"><header><div class="who">${shBtn()}<button class="s" data-act="refresh" title="Refresh">&#8635;</button><span id="abtn">${alertBtns()}</span>${syBadge()}<span class="sm mu">${esc(me.name)} (${me.role})</span><button class="s" data-act="beeptog" title="Alert sound">${S().beep?"&#128276;":"&#128277;"}</button><button class="s" data-act="theme" title="Dark/Light">&#127763;</button>${langSel()}<button class="s" data-sa="sec">&#128274; ${tr("sec")}</button><button class="s" data-act="logout">${tr("logout")}</button></div></header><main id="main"></main></div></div>`;
